@@ -1,0 +1,206 @@
+/* Importar una fuente elegante (opcional, ejemplo con 'Lato') */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    /* Paleta de colores sugerida (ajusta a tu gusto) */
+    --primary-color: #0a2e5c; /* Azul oscuro */
+    --secondary-color: #ffffff; /* Blanco */
+    --accent-color: #f7b733; /* Amarillo/Dorado */
+    --correct-color: #2ecc71; /* Verde */
+    --incorrect-color: #e74c3c; /* Rojo */
+    --text-color: #333333; /* Gris oscuro para texto */
+    --light-text-color: #f8f9fa; /* Texto claro sobre fondos oscuros */
+    --container-bg: rgba(255, 255, 255, 0.9); /* Fondo del contenedor semi-transparente */
+}
+
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif; /* Usar la fuente importada */
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* Contenedor principal con la imagen de fondo */
+.main-container {
+    min-height: 100vh; /* Altura mínima de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: url('images/background.jpg'); /* ¡ASEGÚRATE QUE LA RUTA ES CORRECTA! */
+    background-size: cover; /* Cubrir toda el área */
+    background-position: center center; /* Centrar la imagen */
+    background-attachment: fixed; /* Fondo fijo al hacer scroll */
+    box-sizing: border-box;
+}
+
+/* Contenedor del quiz */
+.container {
+    background-color: var(--container-bg);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 700px; /* Ancho máximo */
+    text-align: center;
+    backdrop-filter: blur(5px); /* Efecto cristal esmerilado (opcional) */
+    -webkit-backdrop-filter: blur(5px); /* Para Safari */
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--primary-color);
+    opacity: 0.8;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+#progress-tracker {
+    font-size: 0.9em;
+    color: var(--primary-color);
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+#question-text {
+    margin-bottom: 30px;
+    font-size: 1.4em;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+/* Grid para botones de respuesta */
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Diseño responsivo */
+    gap: 15px; /* Espacio entre botones */
+    margin-bottom: 20px;
+}
+
+/* Estilo general de botones */
+.btn {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: left; /* Alinear texto a la izquierda dentro del botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover:not(:disabled) {
+    background-color: #08244a; /* Un poco más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Ligero levantamiento */
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Estilos específicos para botones de respuesta correcta/incorrecta */
+.btn.correct {
+    background-color: var(--correct-color);
+    color: white;
+    font-weight: bold;
+}
+
+.btn.incorrect {
+    background-color: var(--incorrect-color);
+    color: white;
+}
+
+/* Estilo para el botón Siguiente y Recomenzar */
+.controls {
+    margin-top: 20px;
+}
+
+.btn-next, .btn-restart {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-next:hover, .btn-restart:hover {
+    background-color: #e6a62a; /* Amarillo más oscuro */
+    transform: translateY(-2px);
+}
+
+/* Mensaje de feedback */
+.feedback-message {
+    margin-top: 20px;
+    font-weight: bold;
+    min-height: 24px; /* Para evitar saltos de layout */
+    font-style: italic;
+}
+
+.feedback-message.correct {
+    color: var(--correct-color);
+}
+
+.feedback-message.incorrect {
+    color: var(--incorrect-color);
+}
+
+/* Área de resultados */
+#results-area h2 {
+    color: var(--primary-color);
+}
+
+#final-score {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+#final-comment {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Clase para ocultar elementos */
+.hide {
+    display: none;
+}
+
+/* Mejoras para pantallas pequeñas */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 25px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #question-text {
+        font-size: 1.2em;
+    }
+
+    .btn-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+}
