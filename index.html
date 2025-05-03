@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concurso: Ética y Tecnología con Tristan Harris</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon opcional -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>">
+</head>
+<body>
+    <!-- Contenedor principal para centrar y aplicar fondo -->
+    <div class="main-container">
+
+        <!-- Contenedor del Quiz -->
+        <div id="quiz-container" class="container">
+            <h1>Filosofía en la Era Digital</h1>
+            <p class="subtitle">Inspirado en Tristan Harris</p>
+
+            <!-- Área de la Pregunta -->
+            <div id="question-area">
+                <div id="progress-tracker">Pregunta <span id="current-question-number">1</span> de <span id="total-questions">9</span></div>
+                <h2 id="question-text">Cargando pregunta...</h2>
+                <div id="answer-buttons" class="btn-grid">
+                    <!-- Botones de respuesta se generan aquí -->
+                </div>
+                <p id="feedback" class="feedback-message"></p>
+            </div>
+
+            <!-- Área de Resultados (inicialmente oculta) -->
+            <div id="results-area" class="hide">
+                <h2>¡Concurso completado!</h2>
+                <p id="final-score">Tu puntuación: 0 / 9</p>
+                <p id="final-comment">¡Sigue explorando estas ideas!</p>
+                <button id="restart-btn" class="btn btn-restart">Recomenzar Concurso</button>
+            </div>
+
+            <!-- Botón de Siguiente (controlado por JS) -->
+            <div class="controls">
+                <button id="next-btn" class="btn btn-next hide">Siguiente Pregunta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Elementos de Audio para los sonidos -->
+    <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="sounds/incorrect.mp3" preload="auto"></audio>
+
+    <!-- Enlace al script de JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
